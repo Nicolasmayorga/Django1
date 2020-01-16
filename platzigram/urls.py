@@ -1,7 +1,12 @@
 """Módulo de URL de platzigram
 """
+
+# De Django
 from django.contrib import admin
 from django.urls import path
+
+
+#Del Proyecto
 from platzigram import views as local_views
 from posts import views as posts_views
 
@@ -11,6 +16,8 @@ from posts import views as posts_views
 
 
 urlpatterns = [
+
+    path('admin/', admin.site.urls),
 
     path('hello-world/', local_views.hello_world),
 
