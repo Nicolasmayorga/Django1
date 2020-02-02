@@ -24,4 +24,9 @@ urlpatterns = [
 
     path('users/logout/', users_views.logout_view, name = 'logout'),
 
+<<<<<<< HEAD
+=======
+    path('posts/', posts_views.list_posts),
+
+>>>>>>> a79312ad0be2a2ebefbbb00761b06bf21f937bf5
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

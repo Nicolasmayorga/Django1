@@ -3,8 +3,13 @@
 # Django
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
+<<<<<<< HEAD
 # Models
+=======
+#Models
+>>>>>>> a79312ad0be2a2ebefbbb00761b06bf21f937bf5
 from django.contrib.auth.models import User
 from users.models import Profile
 
@@ -35,6 +40,7 @@ class ProfileAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Profile', {
             'fields': (('user', 'picture'),),
+<<<<<<< HEAD
         }),
         ('Extra info', {
             'fields': (
@@ -61,6 +67,35 @@ class ProfileInline(admin.StackedInline):
 class UserAdmin(BaseUserAdmin):
     """Add profile admin to base user admin."""
 
+=======
+                        
+        }),
+          ('Extra info', {
+            'fields': (
+                ('website', 'phone_number'),
+                ('biography')
+
+            )
+        }),
+
+        ('Metadata', {
+            'fields': (('created', 'modified'),),
+                        
+        }),
+    )
+
+    readonly_fields = ('created', 'modified', 'user')
+
+
+class ProfileInline(admin.StackedInline):
+
+        model = Profile
+        can_delete = False
+        verbose_name_plural = 'profiles'
+
+class UserAdmin(BaseUserAdmin):
+    
+>>>>>>> a79312ad0be2a2ebefbbb00761b06bf21f937bf5
     inlines = (ProfileInline,)
     list_display = (
         'username',
@@ -70,7 +105,12 @@ class UserAdmin(BaseUserAdmin):
         'is_active',
         'is_staff'
     )
+<<<<<<< HEAD
 
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
+=======
+admin.site.unregister(User)
+admin.site.register(User,UserAdmin)
+>>>>>>> a79312ad0be2a2ebefbbb00761b06bf21f937bf5
